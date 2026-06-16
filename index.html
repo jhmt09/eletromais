@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eletromais: eletricista de emergência 24h, instalações modernas, aterramento técnico e quadros de distribuição com segurança." />
+  <title>Eletromais | Eletricista de Emergência 24h</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            graphite: "#07080b",
+            graphiteSoft: "#11141b",
+            steel: "#d7dce4",
+            electricRed: "#f21f2f",
+            electricRedDark: "#a70d19",
+            electricAmber: "#ffb000",
+            deepBlue: "#071a2f",
+            safetyGreen: "#16a34a"
+          },
+          boxShadow: {
+            glowRed: "0 0 35px rgba(242, 31, 47, .35)",
+            glowAmber: "0 0 32px rgba(255, 176, 0, .26)"
+          },
+          fontFamily: {
+            display: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Estilos customizados complementares -->
+  <style>
+    :root {
+      --brand-red: #f21f2f;
+      --brand-amber: #ffb000;
+      --graphite: #07080b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(242, 31, 47, .22), transparent 28rem),
+        radial-gradient(circle at 85% 12%, rgba(255, 176, 0, .13), transparent 26rem),
+        linear-gradient(135deg, #030406 0%, #07080b 42%, #0d1118 100%);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(15, 18, 26, .72);
+      border: 1px solid rgba(255, 255, 255, .11);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, .34);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .glass-soft {
+      background: rgba(255, 255, 255, .055);
+      border: 1px solid rgba(255, 255, 255, .1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .electric-grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .8), transparent);
+    }
+
+    .hero-wire {
+      position: absolute;
+      width: 44rem;
+      height: 44rem;
+      right: -22rem;
+      top: -7rem;
+      border: 2px solid rgba(242, 31, 47, .32);
+      border-radius: 999px;
+      transform: rotate(-18deg);
+      box-shadow: inset 0 0 30px rgba(242, 31, 47, .22), 0 0 38px rgba(242, 31, 47, .13);
+      pointer-events: none;
+    }
+
+    .hero-wire::before,
+    .hero-wire::after {
+      content: "";
+      position: absolute;
+      width: 15rem;
+      height: 4px;
+      right: 2rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(242, 31, 47, .9), rgba(255, 176, 0, .85));
+      box-shadow: 0 0 18px rgba(242, 31, 47, .8);
+    }
+
+    .hero-wire::before {
+      top: 13rem;
+    }
+
+    .hero-wire::after {
+      top: 16rem;
+      right: 4rem;
+      opacity: .65;
+    }
+
+    .pulse-ring {
+      animation: pulseRing 2.6s ease-out infinite;
+    }
+
+    @keyframes pulseRing {
+      0% {
+        box-shadow: 0 0 0 0 rgba(242, 31, 47, .5);
+      }
+      70% {
+        box-shadow: 0 0 0 12px rgba(242, 31, 47, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(242, 31, 47, 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .pulse-ring {
+        animation: none;
+      }
+
+      * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-display antialiased">
+  <!-- Background visual -->
+  <div class="electric-grid pointer-events-none fixed inset-0 -z-10"></div>
+
+  <!-- Header / Navegação -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegação principal">
+      <a href="#inicio" class="flex items-center gap-3" aria-label="Eletromais - início">
+        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-electricRed text-white shadow-glowRed">
+          <i class="fa-solid fa-bolt text-xl"></i>
+        </span>
+        <span class="leading-none">
+          <span class="block text-xl font-black uppercase tracking-wide text-white">Eletromais<span class="text-electricRed">+</span></span>
+          <span class="text-[11px] font-bold uppercase tracking-[0.26em] text-steel/70">Serviços elétricos</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-7 text-sm font-semibold text-steel/80 lg:flex">
+        <a href="#servicos" class="transition hover:text-white">Serviços</a>
+        <a href="#diferenciais" class="transition hover:text-white">Diferenciais</a>
+        <a href="#depoimentos" class="transition hover:text-white">Depoimentos</a>
+        <a href="#contato" class="transition hover:text-white">Contato</a>
+      </div>
+
+      <div class="hidden items-center gap-3 sm:flex">
+        <a href="https://wa.me/5500999999999?text=Preciso%20de%20um%20eletricista%20urgente" class="inline-flex items-center justify-center gap-2 rounded-full bg-safetyGreen px-5 py-3 text-sm font-extrabold text-white shadow-lg shadow-green-950/30 transition hover:-translate-y-0.5 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2 focus:ring-offset-graphite">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          Chamar no WhatsApp
+        </a>
+      </div>
+
+      <button id="menuButton" type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-electricAmber lg:hidden" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-graphite/95 px-4 pb-4 pt-2 lg:hidden">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 text-sm font-semibold text-steel/85">
+        <a href="#servicos" class="rounded-xl px-3 py-3 transition hover:bg-white/5 hover:text-white">Serviços</a>
+        <a href="#diferenciais" class="rounded-xl px-3 py-3 transition hover:bg-white/5 hover:text-white">Diferenciais</a>
+        <a href="#depoimentos" class="rounded-xl px-3 py-3 transition hover:bg-white/5 hover:text-white">Depoimentos</a>
+        <a href="#contato" class="rounded-xl px-3 py-3 transition hover:bg-white/5 hover:text-white">Contato</a>
+        <a href="https://wa.me/5500999999999?text=Preciso%20de%20um%20eletricista%20urgente" class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl bg-safetyGreen px-5 py-4 text-base font-extrabold text-white transition hover:bg-green-500">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section / Principal -->
+    <section id="inicio" class="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-32">
+      <div class="hero-wire hidden md:block"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
+        <div class="relative z-10">
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-electricRed/40 bg-electricRed/15 px-4 py-2 text-sm font-extrabold uppercase tracking-wide text-white shadow-glowRed pulse-ring">
+            <span class="h-2.5 w-2.5 rounded-full bg-electricRed"></span>
+            Plantão 24 Horas
+          </div>
+
+          <h1 class="max-w-4xl text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-7xl">
+            Eletricista de Emergência 24h e Instalações Seguras
+          </h1>
+
+          <p class="mt-5 max-w-2xl text-lg leading-8 text-steel/82 sm:text-xl">
+            Atendimento rápido para panes, quedas de energia e disjuntores, com execução organizada, ferramentas modernas e foco total em segurança.
+          </p>
+
+          <div class="mt-8 grid gap-3 sm:max-w-xl sm:grid-cols-2">
+            <a href="https://wa.me/5500999999999?text=Preciso%20de%20um%20eletricista%20urgente" class="inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-safetyGreen px-6 py-4 text-lg font-black text-white shadow-xl shadow-green-950/40 transition hover:-translate-y-1 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2 focus:ring-offset-graphite">
+              <i class="fa-brands fa-whatsapp text-2xl"></i>
+              Falar no WhatsApp
+            </a>
+            <a href="tel:+5500999999999" class="inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-electricAmber px-6 py-4 text-lg font-black text-graphite shadow-glowAmber transition hover:-translate-y-1 hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-200 focus:ring-offset-2 focus:ring-offset-graphite">
+              <i class="fa-solid fa-phone-volume text-xl"></i>
+              Ligar Agora
+            </a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 gap-3 sm:max-w-2xl">
+            <div class="glass-soft rounded-2xl p-4">
+              <p class="text-2xl font-black text-white">24h</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-steel/65">Emergência</p>
+            </div>
+            <div class="glass-soft rounded-2xl p-4">
+              <p class="text-2xl font-black text-white">NR10</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-steel/65">Segurança</p>
+            </div>
+            <div class="glass-soft rounded-2xl p-4">
+              <p class="text-2xl font-black text-white">DPS</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-wide text-steel/65">Proteção</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative z-10">
+          <div class="glass rounded-[2rem] p-5 sm:p-7">
+            <div class="rounded-[1.5rem] border border-electricRed/30 bg-gradient-to-br from-electricRed/20 via-white/5 to-deepBlue/30 p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-electricAmber">Emergência elétrica</p>
+                  <h2 class="mt-2 text-3xl font-black text-white sm:text-4xl">Rápido. Confiável. Seguro.</h2>
+                </div>
+                <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-electricRed text-white shadow-glowRed">
+                  <i class="fa-solid fa-bolt-lightning text-2xl"></i>
+                </span>
+              </div>
+
+              <div class="mt-7 grid gap-4">
+                <div class="flex items-center gap-4 rounded-2xl bg-black/30 p-4">
+                  <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-electricRed/20 text-electricRed">
+                    <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                  </span>
+                  <div>
+                    <p class="font-extrabold text-white">Pane no quadro ou curto-circuito?</p>
+                    <p class="mt-1 text-sm text-steel/70">Diagnóstico direto e correção com prioridade.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4 rounded-2xl bg-black/30 p-4">
+                  <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-electricAmber/20 text-electricAmber">
+                    <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
+                  </span>
+                  <div>
+                    <p class="font-extrabold text-white">Instalações modernas</p>
+                    <p class="mt-1 text-sm text-steel/70">Aterramento, quadros e circuitos bem dimensionados.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-7 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="mb-3 flex items-center justify-between">
+                  <span class="text-sm font-bold text-steel/70">Status do atendimento</span>
+                  <span class="rounded-full bg-safetyGreen/15 px-3 py-1 text-xs font-black uppercase tracking-wide text-green-300">Disponível</span>
+                </div>
+                <div class="h-3 overflow-hidden rounded-full bg-white/10">
+                  <div class="h-full w-[86%] rounded-full bg-gradient-to-r from-electricRed via-electricAmber to-safetyGreen"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Serviços</p>
+          <h2 class="mt-3 text-3xl font-black text-white sm:text-5xl">Solução certa para urgências e instalações planejadas.</h2>
+          <p class="mt-4 text-lg leading-8 text-steel/75">Do problema que precisa ser resolvido agora ao projeto elétrico que precisa durar anos.</p>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-2">
+          <article class="glass rounded-[2rem] p-6 sm:p-8">
+            <div class="flex items-center gap-4">
+              <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-electricRed text-white shadow-glowRed">
+                <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+              </span>
+              <div>
+                <p class="text-sm font-black uppercase tracking-[0.2em] text-electricRed">Atendimento imediato</p>
+                <h3 class="text-2xl font-black text-white">Emergências 24h</h3>
+              </div>
+            </div>
+
+            <div class="mt-7 grid gap-4">
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-electricRed/50 hover:bg-electricRed/[0.07]">
+                <div class="flex items-start gap-4">
+                  <i class="fa-solid fa-bolt text-xl text-electricAmber"></i>
+                  <div>
+                    <h4 class="font-extrabold text-white">Surtos Elétricos</h4>
+                    <p class="mt-1 text-sm leading-6 text-steel/70">Verificação de danos, proteção contra picos e orientação para evitar recorrência.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-electricRed/50 hover:bg-electricRed/[0.07]">
+                <div class="flex items-start gap-4">
+                  <i class="fa-solid fa-plug-circle-xmark text-xl text-electricRed"></i>
+                  <div>
+                    <h4 class="font-extrabold text-white">Queda de Energia</h4>
+                    <p class="mt-1 text-sm leading-6 text-steel/70">Localização da falha em circuitos, tomadas, cabos e alimentação interna.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-electricRed/50 hover:bg-electricRed/[0.07]">
+                <div class="flex items-start gap-4">
+                  <i class="fa-solid fa-toggle-on text-xl text-electricAmber"></i>
+                  <div>
+                    <h4 class="font-extrabold text-white">Troca de Disjuntores</h4>
+                    <p class="mt-1 text-sm leading-6 text-steel/70">Substituição e adequação de proteção para cargas residenciais e comerciais.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass rounded-[2rem] p-6 sm:p-8">
+            <div class="flex items-center gap-4">
+              <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-deepBlue text-electricAmber shadow-lg shadow-blue-950/40">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+              </span>
+              <div>
+                <p class="text-sm font-black uppercase tracking-[0.2em] text-electricAmber">Execução técnica</p>
+                <h3 class="text-2xl font-black text-white">Instalações e Projetos</h3>
+              </div>
+            </div>
+
+            <div class="mt-7 grid gap-4">
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-electricAmber/50 hover:bg-electricAmber/[0.06]">
+                <div class="flex items-start gap-4">
+                  <i class="fa-solid fa-screwdriver-wrench text-xl text-electricAmber"></i>
+                  <div>
+                    <h4 class="font-extrabold text-white">Instalação Elétrica Completa</h4>
+                    <p class="mt-1 text-sm leading-6 text-steel/70">Circuitos organizados, pontos bem distribuídos e preparação para novas cargas.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-electricAmber/50 hover:bg-electricAmber/[0.06]">
+                <div class="flex items-start gap-4">
+                  <i class="fa-solid fa-earth-americas text-xl text-electricAmber"></i>
+                  <div>
+                    <h4 class="font-extrabold text-white">Instalação de Aterramento Técnico</h4>
+                    <p class="mt-1 text-sm leading-6 text-steel/70">Proteção para pessoas, equipamentos e sistemas sensíveis.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-electricAmber/50 hover:bg-electricAmber/[0.06]">
+                <div class="flex items-start gap-4">
+                  <i class="fa-solid fa-table-cells-large text-xl text-electricAmber"></i>
+                  <div>
+                    <h4 class="font-extrabold text-white">Montagem de Quadros de Distribuição</h4>
+                    <p class="mt-1 text-sm leading-6 text-steel/70">Quadros identificados, protegidos e prontos para manutenção segura.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais" class="px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="glass overflow-hidden rounded-[2rem]">
+          <div class="grid lg:grid-cols-[.9fr_1.1fr]">
+            <div class="border-b border-white/10 bg-gradient-to-br from-electricRed/25 via-black/20 to-deepBlue/30 p-7 sm:p-10 lg:border-b-0 lg:border-r">
+              <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Diferenciais</p>
+              <h2 class="mt-3 text-3xl font-black text-white sm:text-5xl">Serviço elétrico com padrão profissional.</h2>
+              <p class="mt-5 text-lg leading-8 text-steel/75">Mais que resolver o defeito: a Eletromais organiza, testa e entrega um ambiente mais seguro para sua rotina.</p>
+            </div>
+
+            <div class="grid gap-px bg-white/10 sm:grid-cols-2">
+              <div class="bg-graphiteSoft/90 p-6 sm:p-8">
+                <span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-electricRed/15 text-electricRed">
+                  <i class="fa-solid fa-user-shield text-xl"></i>
+                </span>
+                <h3 class="text-xl font-black text-white">Profissionalismo</h3>
+                <p class="mt-3 text-sm leading-7 text-steel/70">Atendimento claro, postura técnica e comunicação objetiva do início ao fim.</p>
+              </div>
+
+              <div class="bg-graphiteSoft/90 p-6 sm:p-8">
+                <span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-electricAmber/15 text-electricAmber">
+                  <i class="fa-solid fa-clock text-xl"></i>
+                </span>
+                <h3 class="text-xl font-black text-white">Atendimento rápido</h3>
+                <p class="mt-3 text-sm leading-7 text-steel/70">Prioridade para emergências, com foco em reduzir risco e tempo sem energia.</p>
+              </div>
+
+              <div class="bg-graphiteSoft/90 p-6 sm:p-8">
+                <span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
+                  <i class="fa-solid fa-helmet-safety text-xl"></i>
+                </span>
+                <h3 class="text-xl font-black text-white">Normas técnicas</h3>
+                <p class="mt-3 text-sm leading-7 text-steel/70">Execução orientada por boas práticas de segurança e proteção elétrica.</p>
+              </div>
+
+              <div class="bg-graphiteSoft/90 p-6 sm:p-8">
+                <span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-safetyGreen/15 text-green-300">
+                  <i class="fa-solid fa-gauge-high text-xl"></i>
+                </span>
+                <h3 class="text-xl font-black text-white">Ferramentas modernas</h3>
+                <p class="mt-3 text-sm leading-7 text-steel/70">Medições, testes e diagnósticos feitos com equipamentos adequados ao serviço.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div class="max-w-3xl">
+            <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Depoimentos</p>
+            <h2 class="mt-3 text-3xl font-black text-white sm:text-5xl">Quem precisou de urgência recomenda.</h2>
+          </div>
+          <div class="flex gap-1 text-electricAmber" aria-label="Avaliação 5 estrelas">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <article class="glass rounded-[2rem] p-6">
+            <div class="mb-5 flex items-center gap-3">
+              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-electricRed text-lg font-black text-white">M</span>
+              <div>
+                <h3 class="font-black text-white">Mariana Alves</h3>
+                <p class="text-sm text-steel/60">Residência</p>
+              </div>
+            </div>
+            <p class="leading-7 text-steel/78">"Fiquei sem energia de madrugada e fui atendida muito rápido. Explicaram o problema no disjuntor e deixaram tudo funcionando com segurança."</p>
+          </article>
+
+          <article class="glass rounded-[2rem] p-6">
+            <div class="mb-5 flex items-center gap-3">
+              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-electricAmber text-lg font-black text-graphite">R</span>
+              <div>
+                <h3 class="font-black text-white">Rafael Martins</h3>
+                <p class="text-sm text-steel/60">Comércio</p>
+              </div>
+            </div>
+            <p class="leading-7 text-steel/78">"O atendimento salvou meu mercado numa pane elétrica. Serviço limpo, organizado e com orientação para evitar nova sobrecarga."</p>
+          </article>
+
+          <article class="glass rounded-[2rem] p-6">
+            <div class="mb-5 flex items-center gap-3">
+              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-deepBlue text-lg font-black text-electricAmber">C</span>
+              <div>
+                <h3 class="font-black text-white">Camila Rocha</h3>
+                <p class="text-sm text-steel/60">Apartamento</p>
+              </div>
+            </div>
+            <p class="leading-7 text-steel/78">"Contratei para instalar aterramento e organizar o quadro. O resultado ficou bem identificado, seguro e sem bagunça no apartamento."</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="relative overflow-hidden rounded-[2rem] border border-electricRed/30 bg-gradient-to-br from-electricRed/25 via-graphiteSoft to-deepBlue/70 p-7 shadow-glowRed sm:p-10 lg:p-12">
+          <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full border border-electricRed/30"></div>
+          <div class="relative z-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Problema elétrico?</p>
+              <h2 class="mt-3 text-3xl font-black text-white sm:text-5xl">Fale com a Eletromais agora.</h2>
+              <p class="mt-4 max-w-2xl text-lg leading-8 text-steel/75">Emergência 24h e instalações modernas com atendimento direto pelo WhatsApp ou ligação.</p>
+            </div>
+
+            <div class="grid gap-3 sm:grid-cols-2 lg:w-[28rem]">
+              <a href="https://wa.me/5500999999999?text=Preciso%20de%20um%20eletricista%20urgente" class="inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-safetyGreen px-6 py-4 text-lg font-black text-white shadow-xl shadow-green-950/30 transition hover:-translate-y-1 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-300">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                WhatsApp
+              </a>
+              <a href="tel:+5500999999999" class="inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-white px-6 py-4 text-lg font-black text-graphite transition hover:-translate-y-1 hover:bg-electricAmber focus:outline-none focus:ring-2 focus:ring-electricAmber">
+                <i class="fa-solid fa-phone text-xl"></i>
+                Ligar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé / Footer -->
+  <footer id="contato" class="border-t border-white/10 bg-black/35 px-4 py-10 sm:px-6 lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.2fr_.8fr_.8fr]">
+      <div>
+        <a href="#inicio" class="flex items-center gap-3" aria-label="Eletromais - voltar ao início">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-electricRed text-white shadow-glowRed">
+            <i class="fa-solid fa-bolt text-xl"></i>
+          </span>
+          <span class="leading-none">
+            <span class="block text-xl font-black uppercase tracking-wide text-white">Eletromais<span class="text-electricRed">+</span></span>
+            <span class="text-[11px] font-bold uppercase tracking-[0.26em] text-steel/70">Serviços elétricos</span>
+          </span>
+        </a>
+        <p class="mt-5 max-w-md leading-7 text-steel/70">Energia segura, solução garantida. Atendimento elétrico para emergências, instalações e melhorias com responsabilidade técnica.</p>
+      </div>
+
+      <div>
+        <h3 class="font-black uppercase tracking-wide text-white">Links rápidos</h3>
+        <div class="mt-4 grid gap-3 text-sm font-semibold text-steel/70">
+          <a href="#servicos" class="transition hover:text-white">Serviços</a>
+          <a href="#diferenciais" class="transition hover:text-white">Diferenciais</a>
+          <a href="#depoimentos" class="transition hover:text-white">Depoimentos</a>
+          <a href="#inicio" class="transition hover:text-white">Início</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-black uppercase tracking-wide text-white">Contato</h3>
+        <div class="mt-4 grid gap-3 text-sm font-semibold text-steel/70">
+          <a href="https://wa.me/5500999999999?text=Preciso%20de%20um%20eletricista%20urgente" class="inline-flex items-center gap-2 transition hover:text-white">
+            <i class="fa-brands fa-whatsapp text-safetyGreen"></i>
+            (00) 99999-9999
+          </a>
+          <a href="tel:+5500999999999" class="inline-flex items-center gap-2 transition hover:text-white">
+            <i class="fa-solid fa-phone text-electricAmber"></i>
+            +55 (00) 99999-9999
+          </a>
+          <span class="inline-flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-electricRed"></i>
+            Atendimento regional
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-steel/55 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; 2026 Eletromais. Todos os direitos reservados.</p>
+      <p>Segurança elétrica começa com uma instalação bem feita.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts de interação -->
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = !mobileMenu.classList.contains("hidden");
+      mobileMenu.classList.toggle("hidden");
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.innerHTML = isOpen
+        ? '<i class="fa-solid fa-bars text-lg"></i>'
+        : '<i class="fa-solid fa-xmark text-xl"></i>';
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.innerHTML = '<i class="fa-solid fa-bars text-lg"></i>';
+      });
+    });
+  </script>
+</body>
+</html>
