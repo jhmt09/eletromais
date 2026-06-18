@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio dos profissionais da Eletromais: serviços elétricos, instalações, painéis, automação, transformadores e atendimento técnico." />
+  <title>Portfólio Eletromais</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            graphite: "#07080b",
+            graphiteSoft: "#11141b",
+            steel: "#d7dce4",
+            electricRed: "#f21f2f",
+            electricAmber: "#ffb000",
+            deepBlue: "#071a2f",
+            safetyGreen: "#16a34a"
+          },
+          boxShadow: {
+            glowRed: "0 0 35px rgba(242, 31, 47, .35)",
+            glowAmber: "0 0 32px rgba(255, 176, 0, .26)"
+          },
+          fontFamily: {
+            display: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Estilos customizados complementares -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(242, 31, 47, .24), transparent 26rem),
+        radial-gradient(circle at 88% 18%, rgba(255, 176, 0, .12), transparent 24rem),
+        linear-gradient(135deg, #030406 0%, #07080b 48%, #0d1118 100%);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(15, 18, 26, .72);
+      border: 1px solid rgba(255, 255, 255, .11);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, .34);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .glass-soft {
+      background: rgba(255, 255, 255, .055);
+      border: 1px solid rgba(255, 255, 255, .1);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .electric-grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .8), transparent);
+    }
+  </style>
+</head>
+
+<body class="font-display antialiased">
+  <!-- Background visual -->
+  <div class="electric-grid pointer-events-none fixed inset-0 -z-10"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-graphite/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <a href="index.html#time" class="flex items-center gap-3" aria-label="Voltar para a Eletromais">
+        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-electricRed text-white shadow-glowRed">
+          <i class="fa-solid fa-bolt text-xl"></i>
+        </span>
+        <span class="leading-none">
+          <span class="block text-xl font-black uppercase tracking-wide text-white">Eletromais<span class="text-electricRed">+</span></span>
+          <span class="text-[11px] font-bold uppercase tracking-[0.26em] text-steel/70">Portfólio técnico</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html#time" class="hidden rounded-full border border-white/10 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-white/10 sm:inline-flex">
+          Voltar ao site
+        </a>
+        <a href="https://wa.me/5562981145193?text=Preciso%20de%20um%20eletricista%20urgente" class="inline-flex items-center justify-center gap-2 rounded-full bg-safetyGreen px-4 py-3 text-sm font-extrabold text-white shadow-lg shadow-green-950/30 transition hover:-translate-y-0.5 hover:bg-green-500">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero do profissional -->
+    <section class="px-4 pb-14 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-16">
+      <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+        <div class="glass overflow-hidden rounded-[2rem]">
+          <div class="relative aspect-[4/5] max-h-[44rem] overflow-hidden bg-black lg:aspect-[5/6]">
+            <img id="profileImage" src="images/jose.png" alt="Foto do profissional Eletromais" class="h-full w-full object-cover" />
+            <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-graphite via-graphite/55 to-transparent"></div>
+            <span id="profileBadge" class="absolute left-5 top-5 rounded-full border border-electricRed/40 bg-electricRed/20 px-4 py-2 text-xs font-black uppercase tracking-wide text-white">Eletromais</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Portfólio profissional</p>
+          <h1 id="profileName" class="mt-3 text-4xl font-black leading-tight text-white sm:text-6xl">José Henrique</h1>
+          <p id="profileRole" class="mt-4 text-xl font-extrabold text-electricAmber">Eletricista predial</p>
+          <p id="profileBio" class="mt-5 max-w-3xl text-lg leading-8 text-steel/78"></p>
+
+          <div id="profileStats" class="mt-8 grid grid-cols-3 gap-3"></div>
+
+          <div class="mt-8 grid gap-3 sm:max-w-xl sm:grid-cols-2">
+            <a href="https://wa.me/5562981145193?text=Preciso%20de%20um%20eletricista%20urgente" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-safetyGreen px-5 py-4 text-base font-black text-white shadow-xl shadow-green-950/30 transition hover:-translate-y-1 hover:bg-green-500">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              Chamar equipe
+            </a>
+            <a href="tel:+5562981145193" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-electricAmber px-5 py-4 text-base font-black text-graphite shadow-glowAmber transition hover:-translate-y-1 hover:bg-yellow-300">
+              <i class="fa-solid fa-phone-volume"></i>
+              Ligar agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section class="px-4 py-14 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Especialidades</p>
+          <h2 class="mt-3 text-3xl font-black text-white sm:text-5xl">Serviços em que este profissional atua.</h2>
+        </div>
+
+        <div id="serviceGrid" class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4"></div>
+      </div>
+    </section>
+
+    <!-- Foto e portfólio de serviços -->
+    <section class="px-4 py-14 sm:px-6 lg:px-8">
+      <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.15fr_.85fr]">
+        <div class="glass overflow-hidden rounded-[2rem]">
+          <div class="relative min-h-[28rem] overflow-hidden bg-black">
+            <img id="workImage" src="images/jose.png" alt="Foto de serviços executados pela Eletromais" class="absolute inset-0 h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+              <p class="text-sm font-black uppercase tracking-[0.24em] text-electricAmber">Foto dos serviços</p>
+              <h2 id="workTitle" class="mt-2 max-w-2xl text-3xl font-black text-white sm:text-5xl"></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass rounded-[2rem] p-6 sm:p-8">
+          <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Diferencial técnico</p>
+          <h2 id="highlightTitle" class="mt-3 text-3xl font-black text-white"></h2>
+          <p id="highlightText" class="mt-5 text-base leading-8 text-steel/75"></p>
+          <div id="portfolioList" class="mt-7 grid gap-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegação entre profissionais -->
+    <section class="px-4 py-14 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p class="text-sm font-black uppercase tracking-[0.28em] text-electricAmber">Equipe completa</p>
+            <h2 class="mt-3 text-3xl font-black text-white sm:text-5xl">Conheça outros profissionais.</h2>
+          </div>
+          <a href="index.html#time" class="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-white/10">
+            Ver todos no site
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div id="teamLinks" class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black/35 px-4 py-8 sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-steel/55 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; 2026 Eletromais. Todos os direitos reservados.</p>
+      <p>Desenvolvido pela <a href="https://jhmt09.github.io/ejtech/" class="font-bold text-electricAmber transition hover:text-white" target="_blank" rel="noopener noreferrer">EJtech</a>.</p>
+      <p>Rua GB 43, Jardim Guanabara III, Goiânia-GO</p>
+    </div>
+  </footer>
+
+  <!-- Dados e renderização do portfólio -->
+  <script>
+    const profiles = {
+      jose: {
+        shortName: "José",
+        name: "José Henrique",
+        badge: "Predial + tecnologia",
+        role: "Formado em Engenharia de Software e eletricista predial",
+        image: "images/jose.png",
+        focus: "28% center",
+        workFocus: "30% center",
+        bio: "Profissional com visão técnica e organizada, unindo formação em Engenharia de Software com atuação em elétrica predial. Trabalha em diagnósticos, instalações, adequações e soluções que precisam de clareza, segurança e documentação no atendimento.",
+        stats: [
+          ["Predial", "Especialidade"],
+          ["DPS", "Proteção"],
+          ["24h", "Suporte"]
+        ],
+        services: [
+          ["fa-solid fa-house-chimney", "Instalações prediais", "Pontos elétricos, tomadas, iluminação, circuitos e preparação para novas cargas."],
+          ["fa-solid fa-magnifying-glass-chart", "Diagnóstico de falhas", "Análise de panes, queda de energia, disjuntores e sobrecargas."],
+          ["fa-solid fa-shield-halved", "Proteção elétrica", "Apoio em DPS, aterramento, organização de circuitos e adequação de segurança."],
+          ["fa-solid fa-clipboard-check", "Organização técnica", "Serviço limpo, comunicação objetiva e orientação para manutenção preventiva."]
+        ],
+        highlightTitle: "Precisão técnica com execução organizada.",
+        highlightText: "José conecta a leitura técnica do problema com uma execução prática, útil para residências e pequenos comércios que precisam resolver falhas sem improviso.",
+        portfolio: [
+          ["Instalação predial segura", "Distribuição de pontos e circuitos com foco em uso diário e proteção."],
+          ["Correção de panes elétricas", "Atendimento para identificar origem da falha e normalizar o funcionamento."],
+          ["Adequações em quadros", "Identificação, organização e orientação para melhorias no quadro elétrico."]
+        ]
+      },
+      joao: {
+        shortName: "João",
+        name: "João Rodrigues",
+        badge: "15+ anos de campo",
+        role: "Eletricista profissional há mais de 15 anos",
+        image: "images/joao.png",
+        focus: "25% center",
+        workFocus: "25% center",
+        bio: "Eletricista profissional com mais de 15 anos de experiência em reparos, instalações e adequações elétricas. Atua com rapidez, comunicação direta e foco em deixar o sistema funcionando com segurança.",
+        stats: [
+          ["15+", "Anos"],
+          ["Reparos", "Atuação"],
+          ["Normas", "Cuidado"]
+        ],
+        services: [
+          ["fa-solid fa-screwdriver-wrench", "Reparos elétricos", "Correção de tomadas, interruptores, iluminação, cabos e circuitos com falha."],
+          ["fa-solid fa-plug-circle-check", "Instalações", "Instalação de novos pontos, chuveiros, luminárias e equipamentos elétricos."],
+          ["fa-solid fa-gauge-high", "Adequações", "Ajustes em circuitos e proteção para melhorar segurança e desempenho."],
+          ["fa-solid fa-clock", "Atendimento rápido", "Experiência prática para reduzir o tempo parado em emergências."]
+        ],
+        highlightTitle: "Experiência prática para resolver sem enrolação.",
+        highlightText: "João atua no tipo de serviço que exige tomada de decisão rápida, boa leitura do ambiente e execução cuidadosa para evitar retorno do problema.",
+        portfolio: [
+          ["Manutenção corretiva", "Reparos em circuitos, tomadas, interruptores e pontos com aquecimento ou mau contato."],
+          ["Instalações residenciais e comerciais", "Novos pontos de uso, luminárias e circuitos adaptados à demanda do cliente."],
+          ["Adequação de carga", "Correções para evitar sobrecarga e melhorar a segurança da instalação."]
+        ]
+      },
+      cesar: {
+        shortName: "César",
+        name: "César Henrique",
+        badge: "Automação e painéis",
+        role: "Eletrotécnico com mais de 10 anos de experiência",
+        image: "images/cesar.png",
+        focus: "27% center",
+        workFocus: "28% center",
+        bio: "Eletrotécnico com mais de 10 anos de experiência em automação, montagens de painéis elétricos, quadros de distribuição e soluções técnicas para sistemas que precisam de controle, proteção e acabamento profissional.",
+        stats: [
+          ["10+", "Anos"],
+          ["Painéis", "Montagem"],
+          ["Automação", "Foco"]
+        ],
+        services: [
+          ["fa-solid fa-table-cells-large", "Montagem de painéis", "Organização, identificação e montagem de painéis e quadros elétricos."],
+          ["fa-solid fa-microchip", "Automação elétrica", "Apoio em sistemas de comando, controle, acionamento e proteção."],
+          ["fa-solid fa-diagram-project", "Projetos técnicos", "Leitura técnica, adequação de circuitos e organização da infraestrutura."],
+          ["fa-solid fa-shield-virus", "Proteção e testes", "Verificações, ajustes e testes para entregar sistemas mais confiáveis."]
+        ],
+        highlightTitle: "Montagem técnica para sistemas mais confiáveis.",
+        highlightText: "César contribui em serviços que exigem organização interna, padrão de montagem e visão de funcionamento do sistema elétrico como um conjunto.",
+        portfolio: [
+          ["Painéis elétricos", "Montagem e organização de painéis com identificação e lógica de manutenção."],
+          ["Quadros de distribuição", "Distribuição de circuitos, proteção e acabamento para operação segura."],
+          ["Automação e comandos", "Soluções de comando, acionamento e controle para aplicações elétricas."]
+        ]
+      },
+      benilton: {
+        shortName: "Benilton",
+        name: "Benilton Luiz",
+        badge: "Média e alta tensão",
+        role: "Técnico especialista com mais de 25 anos de experiência",
+        image: "images/benilton.png",
+        focus: "62% center",
+        workFocus: "62% center",
+        bio: "Técnico e especialista em média e alta tensão, com mais de 25 anos de experiência em instalação de transformadores, muflas, painéis elétricos, subestações, medições e análises de ativos elétricos sofisticados.",
+        stats: [
+          ["25+", "Anos"],
+          ["Alta", "Tensão"],
+          ["Subestações", "Atuação"]
+        ],
+        services: [
+          ["fa-solid fa-bolt-lightning", "Média e alta tensão", "Serviços técnicos em sistemas que exigem procedimento, experiência e atenção crítica."],
+          ["fa-solid fa-industry", "Transformadores", "Instalação, avaliação e suporte técnico em transformadores e infraestrutura associada."],
+          ["fa-solid fa-cubes-stacked", "Muflas e subestações", "Atuação em muflas, cabines, subestações e componentes de maior complexidade."],
+          ["fa-solid fa-chart-line", "Medições e análises", "Medições, inspeções e análise de ativos elétricos sofisticados."]
+        ],
+        highlightTitle: "Experiência pesada em sistemas críticos.",
+        highlightText: "Benilton atua em frentes que exigem domínio técnico, procedimento e responsabilidade elevada, especialmente em média e alta tensão.",
+        portfolio: [
+          ["Transformadores e cabines", "Instalação e suporte técnico em equipamentos de maior porte e criticidade."],
+          ["Subestações e muflas", "Serviços especializados em componentes de média e alta tensão."],
+          ["Medição e análise de ativos", "Avaliação técnica para decisões de manutenção, correção e segurança operacional."]
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const currentKey = profiles[params.get("integrante")] ? params.get("integrante") : "jose";
+    const profile = profiles[currentKey];
+
+    document.title = `${profile.name} | Portfólio Eletromais`;
+    document.getElementById("profileName").textContent = profile.name;
+    document.getElementById("profileRole").textContent = profile.role;
+    document.getElementById("profileBio").textContent = profile.bio;
+    document.getElementById("profileBadge").textContent = profile.badge;
+    document.getElementById("workTitle").textContent = `Serviços de ${profile.shortName}`;
+    document.getElementById("highlightTitle").textContent = profile.highlightTitle;
+    document.getElementById("highlightText").textContent = profile.highlightText;
+
+    const profileImage = document.getElementById("profileImage");
+    profileImage.src = profile.image;
+    profileImage.alt = `${profile.name}, profissional da equipe Eletromais`;
+    profileImage.style.objectPosition = profile.focus;
+
+    const workImage = document.getElementById("workImage");
+    workImage.src = profile.image;
+    workImage.alt = `Foto dos serviços de ${profile.name}`;
+    workImage.style.objectPosition = profile.workFocus;
+
+    document.getElementById("profileStats").innerHTML = profile.stats.map(([value, label]) => `
+      <div class="glass-soft rounded-2xl p-4">
+        <p class="text-xl font-black text-white sm:text-2xl">${value}</p>
+        <p class="mt-1 text-[11px] font-semibold uppercase tracking-wide text-steel/65">${label}</p>
+      </div>
+    `).join("");
+
+    document.getElementById("serviceGrid").innerHTML = profile.services.map(([icon, title, text]) => `
+      <article class="glass rounded-[2rem] p-6">
+        <span class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-electricRed/15 text-electricRed">
+          <i class="${icon} text-xl"></i>
+        </span>
+        <h3 class="text-xl font-black text-white">${title}</h3>
+        <p class="mt-3 text-sm leading-7 text-steel/70">${text}</p>
+      </article>
+    `).join("");
+
+    document.getElementById("portfolioList").innerHTML = profile.portfolio.map(([title, text]) => `
+      <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+        <h3 class="font-black text-white">${title}</h3>
+        <p class="mt-2 text-sm leading-7 text-steel/70">${text}</p>
+      </div>
+    `).join("");
+
+    document.getElementById("teamLinks").innerHTML = Object.entries(profiles).map(([key, person]) => `
+      <a href="portfolio.html?integrante=${key}" class="glass group overflow-hidden rounded-[2rem] transition hover:-translate-y-1 hover:border-electricAmber/40">
+        <div class="relative aspect-[4/3] overflow-hidden bg-black">
+          <img src="${person.image}" alt="${person.name}" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" style="object-position: ${person.focus};" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/40 to-transparent"></div>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-black text-white">${person.shortName}</h3>
+          <p class="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-electricAmber">${person.badge}</p>
+        </div>
+      </a>
+    `).join("");
+  </script>
+</body>
+</html>
